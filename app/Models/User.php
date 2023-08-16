@@ -13,11 +13,38 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'tbl_usuarios';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
+        'nombre', 
+        'paterno',
+        'materno',
+        'mail', 
+        'fechaAlta',
+        'categoria',
+        'numEmpleado',
+        'adscripcion',
+        'cargo', 
+        'turno', 
+        'servicio',
+        'idinstitucion',
+        'estadoUsuario',           
+        'nickname',
+        'fechaPW',
+        'alta',
+        'idUserValido',
+        'CorreoValidado',
+        'Verificador',
+
         'name',
         'email',
         'password',
@@ -44,6 +71,6 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     public function books() {
-        return $this->hasMany(Book::class); 
+        return $this->hasMany(Book::class, 'usuario_id'); 
     }
 }
