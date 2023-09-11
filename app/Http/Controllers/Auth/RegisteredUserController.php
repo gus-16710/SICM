@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Institution;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -16,11 +17,20 @@ use Illuminate\View\View;
 class RegisteredUserController extends Controller
 {
     /**
+     * Get institurions list.
+     */
+    public function institutions(Request $request)    
+    {
+        $institution = Institution::find($request->id);
+        return response()->json($institution, 200);
+    }
+    
+    /**
      * Display the registration view.
      */
     public function create(): View
     {
-        return view('auth.register');
+        return view('auth.register', ['institutions' => Institution::all()]);
     }
 
     /**
@@ -30,23 +40,23 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
+        $request->validate([            
+            'nombre' => ['required', 'string', 'max:255'],
             'paterno' => ['required', 'string', 'max:50'],
             'materno' => ['required', 'string', 'max:50'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'categoria' => ['required', 'string', 'max:35'],
             'numEmpleado' => ['required', 'string', 'max:25'],
             'adscripcion' => ['required', 'string', 'max:50'],
-            'cargo' => ['required', 'string', 'max:50'],
-            'turno' => ['required', 'string', 'max:50'],
-            'servicio' => ['required', 'string', 'max:50'],
-
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'cargo' => ['max:50'],
+            'turno' => ['max:50'],
+            'servicio' => ['max:50'],
+            'idinstitucion' => ['required'],                    
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
-            'nombre' => $request->name,
+        $user = User::create([            
+            'nombre' => $request->nombre,
             'paterno' => $request->paterno,
             'materno' => $request->materno,
             'mail' => $request->email,
@@ -55,11 +65,11 @@ class RegisteredUserController extends Controller
             'adscripcion' => $request->adscripcion,
             'cargo' => $request->cargo,
             'turno' => $request->turno,
-            'servicio' => $request->servicio,
-
-            'name' => $request->name,
-            'email' => $request->email,            
+            'servicio' => $request->servicio,   
+            'idinstitucion' => $request->idinstitucion,                    
             'password' => Hash::make($request->password),
+            'name' => $request->nombre,
+            'email' => $request->email, 
         ]);
 
         event(new Registered($user));

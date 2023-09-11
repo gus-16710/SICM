@@ -19,42 +19,50 @@
                 </a>
 
                 <ul class="sidebar-nav">
-                    <li class="sidebar-header">Pages</li>
+                    <li class="sidebar-header">Páginas</li>
 
                     <li class="sidebar-item {{ request()->routeIs('dashboard') ? 'active' : ''}}">
                     <a class="sidebar-link" href="{{ route('dashboard') }}">
                         <i class="align-middle" data-feather="sliders"></i>
-                        <span class="align-middle">Dashboard</span>
+                        <span class="align-middle">Escritorio</span>
                     </a>
                     </li>
 
                     <li class="sidebar-item {{ request()->routeIs('profile.edit') ? 'active' : ''}}">
                     <a class="sidebar-link" href="{{ route('profile.edit') }}">
                         <i class="align-middle" data-feather="user"></i>
-                        <span class="align-middle">Profile</span>
+                        <span class="align-middle">Perfíl</span>
                     </a>
                     </li>
 
-                    <li class="sidebar-item">
-                    <a class="sidebar-link" href="pages-sign-in.html">
-                        <i class="align-middle" data-feather="log-in"></i>
-                        <span class="align-middle">Sign In</span>
-                    </a>
-                    </li>
+                    <li class="sidebar-header">Servicios</li>
 
-                    <li class="sidebar-item">
-                    <a class="sidebar-link" href="pages-sign-up.html">
-                        <i class="align-middle" data-feather="user-plus"></i>
-                        <span class="align-middle">Sign Up</span>
-                    </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                    <a class="sidebar-link" href="pages-blank.html">
-                        <i class="align-middle" data-feather="book"></i>
-                        <span class="align-middle">Blank</span>
-                    </a>
-                    </li>
+                    @if (in_array('Quimioterapia', Auth::user()->modules->pluck('Permiso')->toArray()))
+                        <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ route('chemotherapy.index') }}">
+                            <i class="align-middle" data-feather="activity"></i>
+                            <span class="align-middle">Quimioterapia</span>
+                        </a>
+                        </li>
+                    @endif 
+                    
+                    @if (in_array('Nutrición Parenteral', Auth::user()->modules->pluck('Permiso')->toArray()))
+                        <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ route('parenteral.index') }}">
+                            <i class="align-middle" data-feather="star"></i>
+                            <span class="align-middle">Nutrición Parenteral</span>
+                        </a>
+                        </li>
+                    @endif
+                    
+                    @if (in_array('Antibiótico', Auth::user()->modules->pluck('Permiso')->toArray()))
+                        <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ route('antibiotic.index') }}">
+                            <i class="align-middle" data-feather="zap"></i>
+                            <span class="align-middle">Antibiótico</span>
+                        </a>
+                        </li>
+                    @endif
 
                     <li class="sidebar-header">Tools & Components</li>
 

@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AntibioticController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\ChemotherapyController;
+use App\Http\Controllers\ParenteralController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +32,10 @@ Route::middleware(['auth', 'verified', 'status.valid'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get("/books", [BookController::class, 'index'])->name("book.index");
+
+    Route::get("/chemotherapy", [ChemotherapyController::class, 'index'])->name("chemotherapy.index");
+    Route::get("/parenteral", [ParenteralController::class, 'index'])->name("parenteral.index");
+    Route::get("/antibiotic", [AntibioticController::class, 'index'])->name("antibiotic.index");
 });
 
 Route::get("/books", [BookController::class, 'index'])->name("book.index");

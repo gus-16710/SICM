@@ -13,6 +13,9 @@ use App\Http\Controllers\Auth\StatusVerificationController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
+    Route::get('institutions', [RegisteredUserController::class, 'institutions'])
+                ->name('institutions');
+    
     Route::get('register', [RegisteredUserController::class, 'create'])
                 ->name('register');
 

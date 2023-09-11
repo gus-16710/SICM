@@ -12,27 +12,30 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tbl_usuarios', function (Blueprint $table) {
-            $table->increments('id');
-            
-            $table->string('nombre', 50)->nullable();
-            $table->string('paterno', 50)->nullable();
-            $table->string('materno', 50)->nullable();
-            $table->string('mail', 50)->unique();
+            $table->increments('id');                                            
+            $table->string('nombre');
+            $table->string('paterno');
+            $table->string('materno');
+            $table->string('mail')->unique();
             $table->date('fechaAlta')->nullable();
-            $table->string('categoria', 35)->nullable();
-            $table->string('numEmpleado', 25)->nullable();
-            $table->string('adscripcion', 50)->nullable();
-            $table->string('cargo', 50)->nullable();
-            $table->string('turno', 50)->nullable();
-            $table->string('servicio', 50)->nullable();
-            $table->integer('idinstitucion')->nullable();
+            $table->string('categoria');
+            $table->string('numEmpleado');
+            $table->string('adscripcion');
+            $table->string('cargo')->nullable();
+            $table->string('turno')->nullable();
+            $table->string('servicio')->nullable();
+            $table->unsignedInteger('idinstitucion');
+            $table->foreign('idinstitucion')->references('id')->on('tbl_instituciones');
+
             $table->boolean('estadoUsuario')->nullable();           
             $table->string('nickname', 10)->nullable();
             $table->date('fechaPW')->nullable();
-            $table->boolean('alta')->nullable();
+            $table->boolean('alta')->default(0);
             $table->integer('idUserValido')->nullable();
             $table->boolean('CorreoValidado')->nullable();
-            $table->string('Verificador', 10)->nullable();
+            $table->string('Verificador')->nullable();
+
+            $table->integer('idUserD')->nullable();
 
             $table->string('name');
             $table->string('email')->unique();            

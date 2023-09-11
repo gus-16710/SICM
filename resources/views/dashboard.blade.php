@@ -9,7 +9,8 @@
                     <h5 class="card-title mb-0">Dashboard</h5>
                 </div>
                 <div class="card-body py-3">
-                    <p>You're logged in!</p>                                                        
+                    <p>You're logged in!</p>   
+                    {{ Auth::user()->modules->pluck('Permiso') }}                    
                     <div style="overflow: hidden;">
                         <div id="jqxgrid">
                         </div>

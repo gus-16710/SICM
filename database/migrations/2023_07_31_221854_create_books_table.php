@@ -18,9 +18,14 @@ return new class extends Migration
             $table->timestamps();
             $table->unsignedInteger('usuario_id');
             $table->foreign('usuario_id')->references('id')->on('tbl_usuarios');
+
+            //$table->foreignId('usuario_id')->references('id')->on('tbl_usuarios');
+
+            //$table->unsignedInteger('usuario_id');
+            //$table->foreign('usuario_id')->references('id')->on('tbl_usuarios');
             //$table->foreignId('user_id')->constrained();            
             //$table->foreignId('user_id')->integer()->constrained()->onDelete('cascade');
-            // $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();;
+            //$table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();;
         });
     }
 

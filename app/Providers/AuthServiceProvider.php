@@ -3,7 +3,10 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
+
+use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -22,5 +25,16 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        Gate::define('chemotherapy', function (User $user) {
+            return in_array('Quimioterapia', $user->modules()->pluck('Permiso')->toArray());
+        });
+
+        Gate::define('parenteral', function (User $user) {
+            return in_array('Nutrición Parenteral', $user->modules()->pluck('Permiso')->toArray());
+        });
+
+        Gate::define('antibiotic', function (User $user) {
+            return in_array('Antibiótico', $user->modules()->pluck('Permiso')->toArray());
+        });
     }
 }
