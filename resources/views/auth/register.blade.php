@@ -18,13 +18,13 @@
                             <div class="col-md-12">
                                 <label class="text-danger fw-bold">*</label>
                                 <x-input-label for="idinstitucion" :value="__('Institución')" />
-                                <select id="idinstitucion" name="idinstitucion" class="form-select" aria-label="Default select example" autofocus>
+                                <select id="idinstitucion" name="institucion" class="form-select" aria-label="Default select example" autofocus>
                                     <option selected disabled>Selecciona una opción</option>
                                     @foreach ($institutions as $key => $value)
-                                        <option value="{{ $value->id }}" @selected(old('idinstitucion') == $value->id)>{{ $value->nombre }}</option>
+                                        <option value="{{ $value->id }}" @selected(old('institucion') == $value->id)>{{ $value->nombre }}</option>
                                     @endforeach                                                                        
                                 </select>
-                                <x-input-error :messages="$errors->get('idinstitucion')" class="mt-2"/>
+                                <x-input-error :messages="$errors->get('institucion')" class="mt-2"/>
                             </div>
 
                             <div id="datos-institucion" class="alert alert-primary" role="alert">                                
@@ -34,7 +34,7 @@
                             <div class="col-md-6">
                                 <label class="text-danger fw-bold">*</label>
                                 <x-input-label for="nombre" :value="__('Nombre')" />
-                                <x-text-input id="nombre" class="form-control form-control-lg" type="text" name="nombre" :value="old('nombre')"  autocomplete="name" placeholder="Nombre"/>
+                                <x-text-input id="nombre" class="form-control form-control-lg" type="text" name="nombre" :value="old('nombre')" placeholder="Nombre"/>
                                 <x-input-error :messages="$errors->get('nombre')" class="mt-2" />
                             </div>
 
@@ -42,23 +42,23 @@
                             <div class="col-md-6">
                                 <label class="text-danger fw-bold">*</label>
                                 <x-input-label for="paterno" :value="__('Apellido paterno')" />
-                                <x-text-input id="paterno" class="form-control form-control-lg" type="text" name="paterno" :value="old('paterno')" autocomplete="Apellido paterno" placeholder="Apellido paterno"/>
-                                <x-input-error :messages="$errors->get('paterno')" class="mt-2" />
+                                <x-text-input id="paterno" name="apellido_paterno" :value="old('apellido_paterno')" class="form-control form-control-lg" type="text" placeholder="Apellido paterno"/>
+                                <x-input-error :messages="$errors->get('apellido_paterno')" class="mt-2" />
                             </div>
 
                             <!-- Apellido materno -->
                             <div class="col-md-6">
                                 <label class="text-danger fw-bold">*</label>    
                                 <x-input-label for="materno" :value="__('Apellido materno')" />
-                                <x-text-input id="materno" class="form-control form-control-lg" type="text" name="materno" :value="old('materno')" autocomplete="Apellido materno" placeholder="Apellido materno"/>
-                                <x-input-error :messages="$errors->get('materno')" class="mt-2" />
+                                <x-text-input id="materno" name="apellido_materno" :value="old('apellido_materno')" class="form-control form-control-lg" type="text" placeholder="Apellido materno"/>
+                                <x-input-error :messages="$errors->get('apellido_materno')" class="mt-2" />
                             </div>
 
                             <!-- Categoría -->
                             <div class="col-md-6">
                                 <label class="text-danger fw-bold">*</label>    
                                 <x-input-label for="categoria" :value="__('Categoría')" />
-                                <x-text-input id="categoria" class="form-control form-control-lg" type="text" name="categoria" :value="old('categoria')" autocomplete="Categoría" placeholder="Categoría"/>
+                                <x-text-input id="categoria" class="form-control form-control-lg" type="text" name="categoria" :value="old('categoria')" placeholder="Categoría"/>
                                 <x-input-error :messages="$errors->get('categoria')" class="mt-2" />
                             </div>                   
 
@@ -66,7 +66,7 @@
                             <div class="col-md-6">
                                 <label class="text-danger fw-bold">*</label>    
                                 <x-input-label for="numEmpleado" :value="__('N° Empleado')" />
-                                <x-text-input id="numEmpleado" class="form-control form-control-lg" type="text" name="numEmpleado" :value="old('numEmpleado')"  autocomplete="N° Empleado" placeholder="N° Empleado "/>
+                                <x-text-input id="numEmpleado" class="form-control form-control-lg" type="text" name="numEmpleado" :value="old('numEmpleado')" placeholder="N° Empleado "/>
                                 <x-input-error :messages="$errors->get('numEmpleado')" class="mt-2" />
                             </div>
 
@@ -74,61 +74,60 @@
                             <div class="col-md-6">
                                 <label class="text-danger fw-bold">*</label>
                                 <x-input-label for="adscripcion" :value="__('Adscripción')" />
-                                <x-text-input id="adscripcion" class="form-control form-control-lg" type="text" name="adscripcion" :value="old('adscripcion')"  autocomplete="Adscripción" placeholder="Adscripción"/>
+                                <x-text-input id="adscripcion" class="form-control form-control-lg" type="text" name="adscripcion" :value="old('adscripcion')" placeholder="Adscripción"/>
                                 <x-input-error :messages="$errors->get('adscripcion')" class="mt-2" />
                             </div>
 
                             <!-- Cargo -->
                             <div class="col-md-6">
                                 <x-input-label for="cargo" :value="__('Cargo')" />
-                                <x-text-input id="cargo" class="form-control form-control-lg" type="text" name="cargo" :value="old('cargo')"  autocomplete="Cargo" placeholder="Cargo"/>
+                                <x-text-input id="cargo" class="form-control form-control-lg" type="text" name="cargo" :value="old('cargo')" placeholder="Cargo"/>
                                 <x-input-error :messages="$errors->get('cargo')" class="mt-2" />
                             </div>
 
                             <!-- Turno -->
                             <div class="col-md-6">
                                 <x-input-label for="turno" :value="__('Turno')" />
-                                <x-text-input id="turno" class="form-control form-control-lg" type="text" name="turno" :value="old('turno')"  autocomplete="Turno" placeholder="Turno"/>
+                                <x-text-input id="turno" class="form-control form-control-lg" type="text" name="turno" :value="old('turno')" placeholder="Turno"/>
                                 <x-input-error :messages="$errors->get('turno')" class="mt-2" />
                             </div>
 
                             <!-- Servicio -->
                             <div class="col-md-6">
                                 <x-input-label for="servicio" :value="__('Servicio')" />
-                                <x-text-input id="servicio" class="form-control form-control-lg" type="text" name="servicio" :value="old('servicio')"  autocomplete="Servicio" placeholder="Servicio"/>
+                                <x-text-input id="servicio" class="form-control form-control-lg" type="text" name="servicio" :value="old('servicio')" placeholder="Servicio"/>
                                 <x-input-error :messages="$errors->get('servicio')" class="mt-2" />
                             </div>
 
                             <!-- Email Address -->
                             <div class="col-md-6">
                                 <label class="text-danger fw-bold">*</label>
-                                <x-input-label for="email" :value="__('Email')" />
-                                <x-text-input id="email" class="form-control form-control-lg" type="email" name="email" :value="old('email')"  autocomplete="username" placeholder="Email"/>
+                                <x-input-label for="email" :value="__('Correo electrónico')" />
+                                <x-text-input id="email" class="form-control form-control-lg" type="email" name="email" :value="old('email')" placeholder="Correo electrónico"/>
                                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
                             </div>                    
 
                             <!-- Password -->
-                            <div class="col-md-6">
+                            <div class="col-md-6 d-none">
                                 <label class="text-danger fw-bold">*</label>
-                                <x-input-label for="password" :value="__('Password')" />
+                                <x-input-label for="password" :value="__('Contraseña')" />
                                 <x-text-input id="password" class="form-control form-control-lg"
                                                 type="password"
-                                                name="password"
-                                                 autocomplete="new-password" 
-                                                placeholder="Password"
+                                                name="password"                                                
+                                                placeholder="Contraseña"
                                                 />
 
                                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
                             </div>
 
                             <!-- Confirm Password -->
-                            <div class="col-md-6">
+                            <div class="col-md-6 d-none">
                                 <label class="text-danger fw-bold">*</label>
-                                <x-input-label for="password_confirmation" :value="__('Confirma tu password')" />
+                                <x-input-label for="password_confirmation" :value="__('Confirma tu contraseña')" />
                                 <x-text-input id="password_confirmation" class="form-control form-control-lg"
                                                 type="password"
-                                                name="password_confirmation"  autocomplete="new-password"
-                                                placeholder="Confirma tu password"
+                                                name="password_confirmation"  
+                                                placeholder="Confirma tu contraseña"
                                                 />
 
                                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />

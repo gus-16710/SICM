@@ -42,8 +42,8 @@ class RegisteredUserController extends Controller
     {
         $request->validate([            
             'nombre' => ['required', 'string', 'max:255'],
-            'paterno' => ['required', 'string', 'max:50'],
-            'materno' => ['required', 'string', 'max:50'],
+            'apellido_paterno' => ['required', 'string', 'max:50'],
+            'apellido_materno' => ['required', 'string', 'max:50'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'categoria' => ['required', 'string', 'max:35'],
             'numEmpleado' => ['required', 'string', 'max:25'],
@@ -51,14 +51,13 @@ class RegisteredUserController extends Controller
             'cargo' => ['max:50'],
             'turno' => ['max:50'],
             'servicio' => ['max:50'],
-            'idinstitucion' => ['required'],                    
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'institucion' => ['required'],                                
         ]);
 
         $user = User::create([            
             'nombre' => $request->nombre,
-            'paterno' => $request->paterno,
-            'materno' => $request->materno,
+            'paterno' => $request->apellido_paterno,
+            'materno' => $request->apellido_materno,
             'mail' => $request->email,
             'categoria' => $request->categoria,
             'numEmpleado' => $request->numEmpleado,
@@ -66,10 +65,11 @@ class RegisteredUserController extends Controller
             'cargo' => $request->cargo,
             'turno' => $request->turno,
             'servicio' => $request->servicio,   
-            'idinstitucion' => $request->idinstitucion,                    
-            'password' => Hash::make($request->password),
+            'idinstitucion' => $request->institucion,                                
             'name' => $request->nombre,
-            'email' => $request->email, 
+            'email' => $request->email,             
+            'nickname' => fake()->numerify('user-####'),
+            'password' => Hash::make('12345678'),
         ]);
 
         event(new Registered($user));

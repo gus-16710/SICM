@@ -15,7 +15,7 @@
             <nav id="sidebar" class="sidebar js-sidebar">
                 <div class="sidebar-content js-simplebar">
                 <a class="sidebar-brand" href="{{ route('dashboard') }}">
-                    <span class="align-middle">AdminKit</span>
+                    <span class="align-middle">🧬 SICM</span>
                 </a>
 
                 <ul class="sidebar-nav">
@@ -64,61 +64,54 @@
                         </li>
                     @endif
 
-                    <li class="sidebar-header">Tools & Components</li>
+                    <li class="sidebar-header">Bitácora</li>
 
                     <li class="sidebar-item">
-                    <a class="sidebar-link" href="ui-buttons.html">
+                    <a class="sidebar-link" href="#">
                         <i class="align-middle" data-feather="square"></i>
-                        <span class="align-middle">Buttons</span>
+                        <span class="align-middle">Bitácora Quimioterapia</span>
                     </a>
                     </li>
 
                     <li class="sidebar-item">
-                    <a class="sidebar-link" href="ui-forms.html">
+                    <a class="sidebar-link" href="#">
                         <i class="align-middle" data-feather="check-square"></i>
-                        <span class="align-middle">Forms</span>
+                        <span class="align-middle">Bitácora Nutrición</span>
                     </a>
                     </li>
 
                     <li class="sidebar-item">
-                    <a class="sidebar-link" href="ui-cards.html">
+                    <a class="sidebar-link" href="#">
                         <i class="align-middle" data-feather="grid"></i>
-                        <span class="align-middle">Cards</span>
+                        <span class="align-middle">Bitácora Antibióticos</span>
+                    </a>
+                    </li>                 
+
+                    <li class="sidebar-header">Herramientas</li>
+
+                    <li class="sidebar-item">
+                    <a class="sidebar-link" href="#">
+                        <i class="align-middle" data-feather="pie-chart"></i>
+                        <span class="align-middle">Analíticas</span>
                     </a>
                     </li>
 
                     <li class="sidebar-item">
-                    <a class="sidebar-link" href="ui-typography.html">
-                        <i class="align-middle" data-feather="align-left"></i>
-                        <span class="align-middle">Typography</span>
+                    <a class="sidebar-link" href="#">
+                        <i class="align-middle" data-feather="settings"></i>
+                        <span class="align-middle">Ajustes</span>
                     </a>
                     </li>
 
                     <li class="sidebar-item">
-                    <a class="sidebar-link" href="icons-feather.html">
-                        <i class="align-middle" data-feather="coffee"></i>
-                        <span class="align-middle">Icons</span>
-                    </a>
-                    </li>
-
-                    <li class="sidebar-header">Plugins & Addons</li>
-
-                    <li class="sidebar-item">
-                    <a class="sidebar-link" href="charts-chartjs.html">
-                        <i class="align-middle" data-feather="bar-chart-2"></i>
-                        <span class="align-middle">Charts</span>
-                    </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                    <a class="sidebar-link" href="maps-google.html">
-                        <i class="align-middle" data-feather="map"></i>
-                        <span class="align-middle">Maps</span>
+                    <a class="sidebar-link" href="#">
+                        <i class="align-middle" data-feather="help-circle"></i>
+                        <span class="align-middle">Centro de ayuda</span>
                     </a>
                     </li>
                 </ul>
 
-                <div class="sidebar-cta">
+                <div class="sidebar-cta d-none">
                     <div class="sidebar-cta-content">
                     <strong class="d-inline-block mb-2">Upgrade to Pro</strong>
                     <div class="mb-3 text-sm">
@@ -345,28 +338,28 @@
                         <div class="dropdown-menu dropdown-menu-end">
                         <a class="dropdown-item" href="{{route('profile.edit')}}"
                             ><i class="align-middle me-1" data-feather="user"></i>
-                            Profile</a
+                            Perfíl</a
                         >
                         <a class="dropdown-item" href="#"
                             ><i class="align-middle me-1" data-feather="pie-chart"></i>
-                            Analytics</a
+                            Analíticas</a
                         >
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="index.html"
+                        <a class="dropdown-item" href="#"
                             ><i class="align-middle me-1" data-feather="settings"></i>
-                            Settings & Privacy</a
+                            Ajustes</a
                         >
                         <a class="dropdown-item" href="#"
                             ><i
                             class="align-middle me-1"
                             data-feather="help-circle"
                             ></i>
-                            Help Center</a
+                            Centro de ayuda</a
                         >
                         <div class="dropdown-divider"></div>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault(); this.closest('form').submit();">Log out</a>
+                                <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault(); this.closest('form').submit();">Salir</a>
                             </form>
                         </div>
                     </li>
@@ -385,21 +378,21 @@
                         <p class="mb-0">
                         <a
                             class="text-muted"
-                            href="https://adminkit.io/"
+                            href="{{ route('dashboard')}}"
                             target="_blank"
-                            ><strong>AdminKit</strong></a
+                            ><strong>SICM</strong></a
                         >
                         -
                         <a
                             class="text-muted"
-                            href="https://adminkit.io/"
+                            href="{{ route('dashboard')}}"
                             target="_blank"
-                            ><strong>Bootstrap Admin Template</strong></a
+                            ><strong>Sistema Integral para Central de Mezclas</strong></a
                         >
                         &copy;
                         </p>
                     </div>
-                    <div class="col-6 text-end">
+                    <div class="col-6 text-end d-none">
                         <ul class="list-inline">
                         <li class="list-inline-item">
                             <a

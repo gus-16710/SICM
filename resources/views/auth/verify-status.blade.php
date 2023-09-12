@@ -4,21 +4,21 @@
         <div class="d-table-cell align-middle">
 
             <div class="text-center mt-4">
-                <h1 class="h2">Your status is not verified</h1>
+                <h1 class="h2">Tu estado no está verificado</h1>
                 <p class="lead">
-                    To continue, please verify your status.
+                    Para continuar, verifique su estado.
                 </p>
             </div>
 
             <div class="card">
                 <div class="card-body">
                     <div class="m-sm-4">                        
-                        Thanks for verifing your email! Before getting started, we are validating your status.                
+                        ¡Gracias por verificar tu correo electrónico! Antes de comenzar, estamos validando su estado.
                         <div class="mt-4 row justify-content-center">                            
                             <form method="POST" action="{{ route('logout') }}" class="col-auto">
                                 @csrf
                                 <button type="submit" class="btn btn-ligth">
-                                    {{ __('Log Out') }}
+                                    {{ __('Salir') }}
                                 </button>
                             </form>
                         </div>

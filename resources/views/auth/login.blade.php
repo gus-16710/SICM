@@ -3,9 +3,9 @@
         <div class="d-table-cell align-middle">
 
             <div class="text-center mt-4">
-                <h1 class="h2">Welcome back</h1>
+                <h1 class="h2">Bienvenido de nuevo</h1>
                 <p class="lead">
-                    Sign in to your account to continue
+                    Inicia sesión en tu cuenta para continuar
                 </p>
             </div>
 
@@ -20,20 +20,21 @@
 
                             <!-- Email Address -->
                             <div class="mb-3">
-                                <x-input-label for="email" :value="__('Email')" />
-                                <x-text-input id="email" class="form-control form-control-lg" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Enter your email"/>
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                <x-input-label for="usuario" :value="__('Usuario')" />
+                                <x-text-input id="usuario" class="form-control form-control-lg" type="text" name="usuario" :value="old('usuario')" autofocus placeholder="Usuario" required/>
+                                <x-input-error :messages="$errors->get('usuario')" class="mt-2" />
                             </div>
 
                             <!-- Password -->
                             <div class="mb-3">
-                                <x-input-label for="password" :value="__('Password')" />
+                                <x-input-label for="password" :value="__('Contraseña')" />
 
                                 <x-text-input id="password" class="form-control form-control-lg"
                                                 type="password"
                                                 name="password"
-                                                required autocomplete="current-password"
-                                                placeholder="Enter your password" />
+                                                required
+                                                autocomplete="current-password"
+                                                placeholder="Contraseña" />
 
                                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                 @if (Route::has('password.request'))
@@ -53,17 +54,17 @@
                                     name="remember"                            
                                 />
                                 <span class="form-check-label">
-                                    {{ __('Remember me') }}
+                                    {{ __('Recuérdame') }}
                                 </span>
                                 </label>
                             </div>                   
 
                             <div class="text-center mt-4">                    
                                 <x-primary-button class="ml-3">
-                                    {{ __('Log in') }}
+                                    {{ __('Iniciar sesión') }}
                                 </x-primary-button>
                                 <small class="d-block mt-4">
-                                    Not registered? <a href="{{ route('register') }}">Create an account!</a>
+                                    ¿No tienes una cuenta? <a href="{{ route('register') }}">Regístrate</a>
                                 </small>
                             </div>
                         </form>

@@ -1,15 +1,15 @@
 <!-- Blade -->
 <x-template-layout>
     <div class="container-fluid p-0">
-        <h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>                    
+        <h1 class="h3 mb-3">Sistema Integral para Central de Mezclas</h1>                    
         <div class="row">                   
             <div class="col">
                 <div class="card flex-fill w-100">
                 <div class="card-header">
-                    <h5 class="card-title mb-0">Dashboard</h5>
+                    <h5 class="card-title mb-0">Escritorio</h5>
                 </div>
                 <div class="card-body py-3">
-                    <p>You're logged in!</p>   
+                    <p>¡Ya has iniciado sesión!</p>   
                     {{ Auth::user()->modules->pluck('Permiso') }}                    
                     <div style="overflow: hidden;">
                         <div id="jqxgrid">

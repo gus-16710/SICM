@@ -12,8 +12,8 @@ const fetchInstitutions = async (id) => {
     });
     
     $("#datos-institucion")
-        .html(`<span class="d-block">Colonia: ${data.colonia}</span>
-                <span class="d-block">Calle: ${data.calle}</span> 
+        .html(`<span class="d-block">Calle: ${data.calle}</span> 
+                <span class="d-block">Colonia: ${data.colonia}</span>                
                 <span class="d-block">CP: ${data.cp}</span>`);
 };
 

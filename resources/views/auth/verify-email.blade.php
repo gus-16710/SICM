@@ -4,9 +4,9 @@
         <div class="d-table-cell align-middle">
 
             <div class="text-center mt-4">
-                <h1 class="h2">Verify your email</h1>
+                <h1 class="h2">Confirmar correo electrónico</h1>
                 <p class="lead">
-                    To continue, please verify your email address.
+                    Para continuar, verifique su dirección de correo electrónico.
                 </p>
             </div>
 
@@ -15,24 +15,24 @@
                     <div class="m-sm-4">
                         @if (session('status') == 'verification-link-sent')
                             <div class="mb-4 font-medium text-success">
-                                {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+                                {{ __('Se ha enviado un nuevo enlace de verificación a la dirección de correo electrónico que proporcionó durante el registro.') }}
                             </div>
                         @endif
 
-                        Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.                
+                        ¡Gracias por registrarte!<br><br> Antes de comenzar, ¿podría verificar su dirección de correo electrónico haciendo clic en el enlace que le acabamos de enviar por correo electrónico? Si no recibió el correo electrónico, con gusto le enviaremos otro.
                         <div class="mt-4 row justify-content-between">
                             <form method="POST" action="{{ route('verification.send') }}" class="col">
                                 @csrf
                                 <div>
                                     <x-primary-button>
-                                        {{ __('Resend Verification Email') }}
+                                        {{ __('Reenviar correo electrónico') }}
                                     </x-primary-button>
                                 </div>
                             </form>
                             <form method="POST" action="{{ route('logout') }}" class="col-auto">
                                 @csrf
                                 <button type="submit" class="btn btn-ligth">
-                                    {{ __('Log Out') }}
+                                    {{ __('Salir') }}
                                 </button>
                             </form>
                         </div>
