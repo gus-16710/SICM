@@ -8,6 +8,7 @@ use App\Models\Book;
 use App\Models\User;
 use App\Models\Institution;
 use App\Models\Module;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,25 +18,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Module::factory(5)->create();
-        
-        Institution::factory(10)->create();
-        
-        // User::factory(1)->hasAttached(Module::factory()->count(3), 
-            // ['fechaRegistro' => fake()->dateTime(), 
-            // 'created_at' => fake()->dateTime(), 
-            // 'updated_at' => fake()->dateTime()])->create();
+        Institution::factory(10)->create();            
 
         User::factory(1)->hasAttached(
-            Module::factory()->count(3)
+            Module::factory()->count(6)
             ->sequence(
-                ['Permiso' => 'Quimioterapia'],
-                ['Permiso' => 'Nutrición Parenteral'],
-                ['Permiso' => 'Antibiótico'],
+                ['Permiso' => 'Quimioterapia', 'menu' => 'Servicios'],
+                ['Permiso' => 'Nutrición Parenteral', 'menu' => 'Servicios'],
+                ['Permiso' => 'Antibiótico', 'menu' => 'Servicios'],
+                ['Permiso' => 'Bitácora Quimioterapia', 'menu' => 'Bitácoras'],
+                ['Permiso' => 'Bitácora Antibióticos', 'menu' => 'Bitácoras'],
+                ['Permiso' => 'Bitácora Nutrición', 'menu' => 'Bitácoras'],
             ), 
-            ['fechaRegistro' => fake()->dateTime(), 
-            'created_at' => fake()->dateTime(), 
-            'updated_at' => fake()->dateTime()],
+            ['fechaRegistro' => Carbon::now(), 
+            'created_at' => Carbon::now(), 
+            'updated_at' => Carbon::now()],
             )->create();
         
         Book::factory(36)->for(User::all()->random())->create();

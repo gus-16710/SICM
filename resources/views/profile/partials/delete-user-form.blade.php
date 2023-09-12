@@ -2,13 +2,13 @@
     <div class="col-12 col-12">
         <div class="card">
         <div class="card-header">
-            <h5 class="card-title mb-0">Delete Account</h5>
+            <h5 class="card-title mb-0">Borrar cuenta</h5>
         </div>
         <div class="card-body">
             <p class="card-text">
-            Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.
+                Una vez que se elimine su cuenta, todos sus recursos y datos se eliminarán permanentemente. Antes de eliminar su cuenta, descargue cualquier dato o información que desee conservar.
             </p>            
-            <button type="button" id="btn-open-modal" class="btn btn-danger">Delete Account</button>
+            <button type="button" id="btn-open-modal" class="btn btn-danger">Borrar Cuenta</button>
         </div>
         </div>
     </div>
@@ -21,21 +21,21 @@
                 @csrf
                 @method('delete')
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Account</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Borrar Cuenta</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">            
-                    <h4>Are you sure you want to delete your account?</h4>
-                    <p>Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.</p>
+                    <h4>¿Estás seguro de que quieres eliminar tu cuenta?</h4>
+                    <p>Una vez que se elimine su cuenta, todos sus recursos y datos se eliminarán permanentemente. Ingrese su contraseña para confirmar que desea eliminar permanentemente su cuenta.</p>
                     <div>
-                        <x-input-label for="password" value="{{ __('Password') }}" class="sr-only" />
+                        <x-input-label for="password" value="{{ __('Contraseña') }}" class="sr-only" />
 
                         <x-text-input
                             id="password"
                             name="password"
                             type="password"
                             class="mt-1 block w-3/4"
-                            placeholder="{{ __('Password') }}"
+                            placeholder="{{ __('Contraseña') }}"
                             autofocus
                         />
 
@@ -43,8 +43,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-danger">Delete Account</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-danger">Borrar Cuenta</button>
                 </div>
             </form>
         </div>

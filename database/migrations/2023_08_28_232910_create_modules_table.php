@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('Permiso');
             $table->string('entorno');
             $table->string('codigo');
+            $table->string('menu');
             $table->timestamps();
         });
     }

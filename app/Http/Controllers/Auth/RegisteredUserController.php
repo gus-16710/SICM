@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Carbon;
 
 class RegisteredUserController extends Controller
 {
@@ -67,9 +68,8 @@ class RegisteredUserController extends Controller
             'servicio' => $request->servicio,   
             'idinstitucion' => $request->institucion,                                
             'name' => $request->nombre,
-            'email' => $request->email,             
-            'nickname' => fake()->numerify('user-####'),
-            'password' => Hash::make('12345678'),
+            'email' => $request->email,                         
+            'fechaAlta' => Carbon::now(),
         ]);
 
         event(new Registered($user));

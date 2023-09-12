@@ -10,11 +10,12 @@
                 </div>
                 <div class="card-body py-3">
                     <p>¡Ya has iniciado sesión!</p>   
-                    {{ Auth::user()->modules->pluck('Permiso') }}                    
+                    <!-- {{ Auth::user()->modules->where('menu', 'Servicios')->pluck('Permiso') }}                    
+                    {{ count(Auth::user()->modules->where('menu', 'Bitácoras'))  }}  -->
                     <div style="overflow: hidden;">
                         <div id="jqxgrid">
                         </div>
-                    </div>
+                    </div>                    
                 </div>
                 </div>
             </div>

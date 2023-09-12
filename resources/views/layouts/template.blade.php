@@ -35,7 +35,9 @@
                     </a>
                     </li>
 
-                    <li class="sidebar-header">Servicios</li>
+                    @if (count(Auth::user()->modules->where('menu', 'Servicios')) > 0)
+                        <li class="sidebar-header">Servicios</li>
+                    @endif
 
                     @if (in_array('Quimioterapia', Auth::user()->modules->pluck('Permiso')->toArray()))
                         <li class="sidebar-item">
@@ -64,28 +66,36 @@
                         </li>
                     @endif
 
-                    <li class="sidebar-header">Bitácora</li>
+                    @if (count(Auth::user()->modules->where('menu', 'Bitácoras')) > 0)
+                        <li class="sidebar-header">Bitácora</li>
+                    @endif
 
-                    <li class="sidebar-item">
-                    <a class="sidebar-link" href="#">
-                        <i class="align-middle" data-feather="square"></i>
-                        <span class="align-middle">Bitácora Quimioterapia</span>
-                    </a>
-                    </li>
+                    @if (in_array('Bitácora Quimioterapia', Auth::user()->modules->pluck('Permiso')->toArray()))
+                        <li class="sidebar-item">
+                        <a class="sidebar-link" href="#">
+                            <i class="align-middle" data-feather="square"></i>
+                            <span class="align-middle">Bitácora Quimioterapia</span>
+                        </a>
+                        </li>
+                    @endif
 
-                    <li class="sidebar-item">
-                    <a class="sidebar-link" href="#">
-                        <i class="align-middle" data-feather="check-square"></i>
-                        <span class="align-middle">Bitácora Nutrición</span>
-                    </a>
-                    </li>
+                    @if (in_array('Bitácora Nutrición', Auth::user()->modules->pluck('Permiso')->toArray()))
+                        <li class="sidebar-item">
+                        <a class="sidebar-link" href="#">
+                            <i class="align-middle" data-feather="check-square"></i>
+                            <span class="align-middle">Bitácora Nutrición</span>
+                        </a>
+                        </li>
+                    @endif
 
-                    <li class="sidebar-item">
-                    <a class="sidebar-link" href="#">
-                        <i class="align-middle" data-feather="grid"></i>
-                        <span class="align-middle">Bitácora Antibióticos</span>
-                    </a>
-                    </li>                 
+                    @if (in_array('Bitácora Antibióticos', Auth::user()->modules->pluck('Permiso')->toArray()))
+                        <li class="sidebar-item">
+                        <a class="sidebar-link" href="#">
+                            <i class="align-middle" data-feather="grid"></i>
+                            <span class="align-middle">Bitácora Antibióticos</span>
+                        </a>
+                        </li>                 
+                    @endif
 
                     <li class="sidebar-header">Herramientas</li>
 

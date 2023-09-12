@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Institution;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
@@ -32,10 +33,14 @@ class UserFactory extends Factory
             'idinstitucion' => Institution::factory(),
             'name' => fake()->name(),
             'email' => $email,
-            'email_verified_at' => now(),
-            'password' => Hash::make('password'),
+            'email_verified_at' => now(),            
             'remember_token' => Str::random(10),
-            'nickname' => fake()->numerify('user-####'),
+            'password' => Hash::make('password'),
+            'nickname' => 'admin',
+            'alta' => 1,
+            'estadoUsuario' => 1,
+            'fechaPW' => Carbon::now(),
+            'fechaAlta' => Carbon::now(),
         ];
     }
 

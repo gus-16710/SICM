@@ -38,6 +38,4 @@ Route::middleware(['auth', 'verified', 'status.valid'])->group(function () {
     Route::get("/antibiotic", [AntibioticController::class, 'index'])->name("antibiotic.index");
 });
 
-Route::get("/books", [BookController::class, 'index'])->name("book.index");
-
 require __DIR__.'/auth.php';

@@ -28,7 +28,7 @@ return new class extends Migration
             $table->foreign('idinstitucion')->references('id')->on('tbl_instituciones');
 
             $table->boolean('estadoUsuario')->nullable();           
-            $table->string('nickname', 10)->nullable();
+            $table->string('nickname')->unique()->nullable();
             $table->date('fechaPW')->nullable();
             $table->boolean('alta')->default(0);
             $table->integer('idUserValido')->nullable();
@@ -40,7 +40,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();            
             $table->timestamp('email_verified_at')->nullable();                         
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

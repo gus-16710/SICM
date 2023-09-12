@@ -19,7 +19,8 @@ class ModuleFactory extends Factory
         return [
             'Permiso' => fake()->word(),
             'entorno' => fake()->randomElement(['W']),
-            'codigo' => fake()->numerify(),            
+            'codigo' => fake()->numerify(), 
+            'menu' => fake()->word(),            
         ];
     }
 }
