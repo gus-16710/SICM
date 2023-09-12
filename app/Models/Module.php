@@ -15,7 +15,7 @@ class Module extends Model
      *
      * @var string
      */
-    protected $table = 'Modulos';
+    protected $table = 'modulos';
 
         /**
      * The attributes that are mass assignable.

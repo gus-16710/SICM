@@ -32,7 +32,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'nickname' => ['required', 'string', 'max:255', Rule::unique('tbl_usuarios')->ignore($id)],
             'password' => ['required'],
-            'modules' => ['required'],
+            'modules' => ['sometimes'],
         ]);
 
         if($validator->fails()){
